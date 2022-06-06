@@ -1,0 +1,56 @@
+links:
+1. Use a text editor to put the paragraph below in the file
+meteorites.txt :
+Alors que la NASA continue à traquer de très près un astéroïde de 45 mètres de
+diamètre qui frôlera la Terre vendredi soir, une pluie de météorites a provoqué,
+vendredi, de violentes explosions dans les basses couches de l'atmosphère audessus de l'Oural et de régions du centre de la Russie
+2. Create a physical link lien_ph.txt which points to the file meteorites.txt
+3. Create a symbolic link that points to lien_ph.txt
+4. Delete the meteorites.txt file using the following command: rm meteorites.txt
+5. Is the symbolic link still functional?
+1. Create the following tree structure:
+linux
+|
+-------exercises
+|
+--------exercise 1
+--------exercise2
+--------exercise3
+-------time
+|
+--------tp1
+--------tp2
+--------tp3
+2. Move to the exercise2 directory
+3. Create a text file called exo1.txt which contains a sentence. For this, use
+the nano editor.
+4. Move to the tp3 directory using a relative path.
+5. Return to the personal folder.
+6. Check your location by running the pwd command. It should display /home/sics
+7. Create the following tree in one command. Look in the manual for the option
+suitable.
+-------Classes
+|
+--------chapter 1
+--------chapter 2
+--------chapter3
+--------chapter4
+8. Move to the exercise2 directory.
+9. Rename the file exo1.txt by exercise1.txt
+10. Move this file to the exercise2 folder, renaming it to ex2.txt
+11. Delete this file.
+12. Delete all those directories we just created.
+Basic commands:
+1. Create the tp3 directory.
+2. Move to this directory.
+3. Look for files that have a name that starts with sd in the /dev directory
+4. Create a text file under the name research.txt, which contains the following paragraph:
+Each of the functional levels is described in the Details box.
+Choosing the Windows Server 2008 forest functional level ensures that all
+domains in the forest operate at the Windows Server 2008 domain functional
+level, which enables several new features provided by Windows Server 2008.
+5. Search for the word Windows by specifying the line number.
+6. Replace 2008 by 2012 in all the text of the file recherche.txt, and put the result
+in the win2012.txt file
+7. Archive the files recherche.txt in recherche.txt.tar and win2012.txt in win2012.txt.tar
+8. Compress the file recherche.txt.tar in gz, and the file win2012.txt.tar in bz2

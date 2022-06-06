@@ -1,0 +1,42 @@
+A) User management:
+1. Manually add the user Samir who has the following characteristics:
+◦ Login: samir
+◦ Password: 11aa55@@
+◦ UID: 1101
+◦ Main group: samir (1101).
+◦ Home directory: /home/samir/
+◦ Default shell: /bin/bash
+N.B: www.epochconverter.com makes it possible to determine the number of days elapsed
+01/01/1970 to present.
+2. Check the addition success by switching to the new user.
+3. Use the appropriate commands to add the Hind user account characterized by:
+◦ Login: hind
+◦ Password: @#ab12AB
+◦ Home directory: /home/hind
+◦ Hind can only change the password one month after creating the account.
+◦ She will be prompted to change the password after three months.
+◦ She will be notified of a change one week before.
+4. Verify successful addition by switching to new user
+B) Package management:
+N.B: The rest of the practical work requires an Internet connection.
+1. Note the existing repository sources in your system.
+2. Update package index.
+3. Install, then launch, Gparted, the tool for managing and organizing disk partitions.
+4. Foliate is a freeware e-book reader. This tool does not exist in
+repositories maintained by Ubuntu. Foltiate developers have put a personal repository of
+packages (PPA). Just add the latter to our system to install Foliate.
+5. Add the PPA (Personal Package Archive) repository using the command: # add-apt-repository
+ppa:apandada1/foliate
+6. Update package index before installing and launching Foliate.
+7. Specify the location where the source of this repository has just been added.
+8. Look for packages that are named exactly firefox (use the expressions
+regular).
+9. List apache2 package content (web server).
+10. VLC is one of the most used software for local video playback. We're going
+install this software from its source code.
+11. Download VLC tarball.
+12. Unzip, then unzip the file.
+13. Take a look at the README file.
+14. View the INSTALL file
+15. Follow the instructions put in INSTALL to install VLC.
+16. Note any dependency package you have installed

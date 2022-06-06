@@ -1,0 +1,25 @@
+1 Discovery of open ports
+1. List the open connections in your machine (lsof).
+2. List the open connections of the machine that has the IP address 192.168.10.5
+3. List open connections that use port number 80 (Web).
+4. Use the fuser command to display HTTP connection details (based on
+over TCP and uses port 80).
+5. Use the netstat command to display the port numbers and IP addresses of the
+connections which are listening and which use the TCP protocol.
+6. Scan ports between 80 and 443 in machine 192.168.1.50 (nmap).
+2 Limitation of system resources
+7. Display the soft limits applied to the maximum size of the Resident Set Size
+(RSS).
+8. Display the strict limits applied to the maximum size of the Resident Set Size
+(RSS).
+9. Set the soft maximum RSS limits to 5000 KB.
+10. Set the hard limits of maximum RSS to 10000 KB.
+11. Try to increase the strict limitation of the maximum RSS to 15000 KB.
+12. Can you do it? Why ?
+3 Managing connected users
+Consider the following result obtained after running the last command:
+carol pts/0 192.168.1.4 Sun May 31 14:16 - 14:22 (00:06)
+13. Was carol connected through a remote host? Why ?
+14. How long does the carol session last?
+15. Was carol logged in through a real classic text terminal?
+Why ?

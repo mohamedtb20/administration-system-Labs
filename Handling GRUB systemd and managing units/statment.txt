@@ -1,0 +1,40 @@
+1. Determine kernel configuration files in /boot
+2. Note the Linux kernel versions supported by these configuration files.
+The Linux kernel is saved in the /boot/ directory under the name vmlinux* or
+vmlinuz* if it is compressed.
+3. Note the versions of Linux kernels present in the system.
+4. What is the size of each of these nuclei?
+5. Determine the versions noted in the files that represent the ramdisk
+initial.
+6. Knowing that the GRUB configuration file is /boot/grub/grub.cfg for
+GRUB 2 and /boot/grub/menu.lst for GRUB Legacy, determine the version of the
+GRUB installed in your machine
+systemd and unit management
+1. Determine the number of units installed in your system (unit files).
+2. Determine the number of services installed in your system (units files).
+3. Deduct the percentage of installed services (InstalledServices InstalledUnits × 100).
+4. Determine the number of active units in your system.
+5. Determine the number of active services in your system.
+6. Deduct the percentage of active services (ActiveServices ActiveUnits × 100).
+7. Determine the number of units that failed during startup.
+8. Note these units if they are not numerous (< 10 units).
+9. Use the journalctl -u <unit.service> command to inspect the
+cause of this/these failure(s).
+10. Determine the number of targets in your system.
+11. Use the cat action associated with the systemctl command to display the file
+cron service.
+12. In the principle of operation of systemd, the launch of a unit
+is conditioned by a start command. For example, a unit U does not
+will only launch after the launch of the P unit and before the launch of the S unit.
+Use the cat action associated with the systemctl command to determine the
+units that must be started before the rescue service and those that must be
+be launched after this service. Note these units.
+13. List rescue target dependencies. Note only dependencies
+of the 1st level.
+14. Determine the current target (runlevel).
+15. Determine the default target.
+16. Set default target to multi-user.
+17. Switch to target rescue.
+18. Restart the system using the systemctl command.
+19. Determine the current target.
+20. Reset the default target to the initial runlevel.

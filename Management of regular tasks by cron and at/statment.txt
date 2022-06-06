@@ -1,0 +1,81 @@
+Handling crontab jobs
+1. Check in the /var/spool/cron/ directory if a user has scheduled tasks.
+2. Create a user crontab to run the date command on the next machine restart. Redirect the result to the /home/sics/la_date.txt file.
+3. Restart the system, then consult the la_date.txt file.
+4. Consider the following scheduled task:
+* * * * * echo "Hello, it's $(date +%R)." >> /home/sics/les_dates.txt
+Explain how this task works.
+5. Add this task to your crontab.
+6. View scheduled tasks.
+7. Check the contents of the file les_dates.txt after a few minutes.
+We will create a shell script that archives the report written each weekend
+(Saturday) before noon. Its operating principle is as follows:
+— The script checks for the presence of the rapport.txt report in the /tmp directory.
+— If the report exists, it will be archived to archive-DD-MM-YY-HH-MM-SS.tar.
+— If the report does not exist, an empty file will be created (archive-DD-MM-YY-HH-MM-SS.tar.txt).
+The archiver.sh script is as follows:
+#!/bin/bash
+if [ -f /tmp/report.txt ]
+then
+tar cvf /tmp/$(date +%d-%m-%y-%H-%M-%S).tar /tmp/rapport.txt
+rm /tmp/report.txt
+else
+touch /tmp/$(date +%d-%m-%y-%H-%M-%S).tar.txt
+fi
+exit 0
+8. Create this script by a text editor.
+9. Add execution permission to the script.
+10. Run the script to test it.
+11. Verify the existence of the empty file.
+12. Create report report.txt
+13. Run the script again.
+14. Verify the existence of the archive.
+15. Automate the execution of this script (system task) so that it is launched every
+Wednesdays from noon to 6 p.m. every two minutes.
+16. After a few minutes, check for the presence of the archives in the /tmp directory
+1.2 Manipulating access to cron
+17. Create the /etc/cron.allow file.
+18. Try adding a task in your crontab.
+19. Did you have the right to add? Why ?
+20. Add your name (login) to this file.
+21. Try again to add a task in your crontab.
+22. Were you able to add this task?
+23. Delete /etc/cron.allow then create /etc/cron.deny.
+24. Try adding a task in your crontab.
+25. Did you have the right to add?
+26. Add your name (login) to this file.
+27. Try again to add a task in your crontab.
+28. Were you able to add this task?
+29. Add your name to the /etc/cron.allow file.
+30. Try again to add a task in your crontab.
+31. What do you notice?
+2 Task management by at
+The main difference between cron and at is that the former is used for scheduling repetitive running tasks, while the latter is used for scheduling
+one-time execution tasks.
+2.1 Task manipulation by at
+32. Schedule the creation of the Abc, Def and Ghi directories in the next 5
+minutes.
+33. List pending jobs right after.
+34. Check, after 5 minutes, the creation of the aforementioned directories.
+35. List pending jobs.
+36. Create a job to run some commands (e.g. ls, touch and mkdir) on
+next Saturday at noon.
+37. View scheduled jobs.
+38. View orders for this job.
+39. Delete this job.
+Manipulating access to at
+40. Create the /etc/at.allow file.
+41. Trying to add a task by at.
+42. Did you have the right to add? Why ?
+43. Add your name (login) to this file.
+44. Try again to add a task by at.
+45. Were you able to add this task?
+46. Delete /etc/at.allow then create /etc/at.deny.
+47. Trying to add a task by at.
+48. Did you have the right to add?
+49. Add your name (login) in this file.
+50. Try again to add a task by at.
+51. Were you able to add this task?
+52. Add your name to the /etc/at.allow file.
+53. Try again to add a task by at.
+54. What do you notice?
