@@ -1,0 +1,46 @@
+Handling GRUB:
+1) ls /boot/config*
+   Files that have a name beginning with config-
+2) From vmlinuz... or vmlinux...
+4) ls -lh vmlinuz... (e.g.: ls -lh vmlinuz-4.15.0-144-generic)
+5) From the initrd files...
+6) ls /boot/grub
+   If the grub.cfg file exists --> GRUB 2
+   If the menu.lst file exists --> GRUB legacy
+7) dd if=/dev/zero of=/dev/sdX bs=446 count=1
+10) fdisk -l /dev/sda
+11) mkdir /mnt/tmp
+    mount /dev/sdXN /mnt/tmp
+14) nano /etc/default/grub
+Find the GRUB_TIMEOUT option then change the assigned value to 5
+To register
+15) update-grub
+16) nano /etc/grub.d/00_header
+Add the quoted lines at the end.
+17) update-grub
+
+
+Systemd and unit management:
+1) systemctl list-unit-files | tail -1
+2) systemctl list-unit-files --type=service | tail-2
+3) 302/437*100 = 69.1%
+4) systemctl list-units --state=active | tail-2
+5) systemctl list-units --state=active --type=service|tail -2
+6) 111/289*100 = 38.4%
+7) systemctl list-units --state=failed
+8) According to the result in each system...
+9) Example: journalctl -u maldet.service
+10) systemctl --list-unit-files --type=target | grep tail -1
+11) systemctl cat cron.service
+12) systemctl cat rescue.service
+Before: Before=shutdown.target
+After: After=sysinit.target plymouth-start.service
+13) systemctl list-dependencies rescue.target
+Dependencies (level 1): rescue.service systemd-update-utmp-runlevel.service and sysinit.target
+14) run level
+15) systemctl get-default
+16) systemctl set-default multi-user multi-user.target
+17) systemctl isolate rescue.target
+18) systemctl isolate reboot.target
+19) run level
+20) systemctl set-default graphical.target
