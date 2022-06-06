@@ -1,0 +1,58 @@
+physical/symbolic link:
+1-using the touch command to create a file: $touch meteorites.txt
+$nano meteorites.txt
+As NASA continues to track a 45-meter-wide asteroid very closely
+diameter that will graze the Earth on Friday evening, a meteor shower caused,
+violent explosions in the lower layers of the atmosphere over the Urals and parts of central Russia on Friday
+ctrl+x
+2-to create a physical link, use the ln command: $ln meteorites.txt lien_ph.txt
+3- $ln -s link_ph.txt link_sym.txt
+4-$rm meteorites.txt
+5-$ls link_sym.txt
+displays: link_sym.txt
+6-$cat link_sym.txt
+poster: As NASA continues to track a 45-meter-wide asteroid very closely,
+diameter that will graze the Earth on Friday evening, a meteor shower caused,
+violent explosions in the lower layers of the atmosphere over the Urals and parts of central Russia on Friday
+Basic command
+1- $ mkdir linux/exercises/exercise1
+$mkdir linux/exercises/exercise2
+$mkdir linux/exercises/exercise3
+$mkdir linux/tps/tp1
+$mkdir linux/tps/tp2
+$mkdir linux/tps/tp3
+2- move using cd: Cd ~/linux/exercises/exercise2 3-$touch ex01.txt
+$nano ex01.txt
+phrasing
+crtl+x
+4-we move using cd to a relative path: $Cd ~/linux/tps/tp3
+5-we return using cd with ~ is the home directory: $Cd ~ 6-$pwd
+7-instead of writing several mkdir we just have one: $ mkdir -p course/chapter1 course/chapter2 course/chapter3 course/chapter4
+8-move using the move command (mv): $mv ~/linux/exercises/exercise2
+9-we also rename with the move (mv) command: $mv ex01.txt exercise1.txt
+10-we move and rename with the same mv command: $ mv ~/linux/exercises/exercise2
+$mv exercise2 ex2.txt
+11- we delete a file by rm: $rm ex2.txt
+12- we delete all the directories by rm (including non-empty): rm -rf ~/linux
+basic command part 2:
+1-$mkdir tp3
+2-move using cd: $cd tp3
+3-to display the contents of a directory using ls and grep for searching: $ls /dev | grep ^sd
+4-we use the cat command to know and create the name of a file at the same time: $cat <<Tiba> recherche.txt
+>Each of the functional levels is described in the Details box.
+>Choosing the Windows Server 2008 forest functional level ensures that all
+>domains in the forest operate at the Windows Server 2008 domain functional
+>level, which enables several new features provided by Windows Server 2008.
+>Tiba
+5-we search by grep (the line numbers and the word windows appear in a different color): $grep -rn windows search.txt
+6-We replace with the command sed sui allows to make the substitution: $sed 's/2008/2012/g' recherche.txt | tee win2012.txt
+7-use the following commands:
+$tar cvf win2012.txt.tar win2012.txt
+will display: win2012.txt
+$ls win2012.txt.tar
+win2012.txt.tar
+$tar cvf search.txt.tar search.txt
+search.txt
+$ls search.txt.tar
+search.txt.tar
+8- we use the gzip command to compress: $gzip recherche.txt.tar
