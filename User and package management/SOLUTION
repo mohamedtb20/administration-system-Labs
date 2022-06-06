@@ -1,0 +1,52 @@
+User Management :
+1.
+# vipw -p
+samir:x:1101:1101:Samir's account:/home/samir:/bin/bash
+# vipw -s
+samir::16000:0:99999:7:::
+# vipw -g
+samir:x:1101:
+# mkdir /home/samir
+# cp -R /etc/skel/. /home/samir
+# chown -R samir /home/samir
+#passwd samir
+2. # su - samir
+3.
+# useradd -m -d /home/hin hind
+# passwd -n 30 -x 90 -w 7 hind
+#passwd hind
+4. # su - hind
+5.
+# nano users.sh
+#!/bin/bash
+file = StudentList.csv
+Group = $(head -1 $file | cut -d ',' -f 4)
+groupadd $Group
+for line in $(cat $file)
+do
+Firstname = $(cut -d ',' -f 1 $line)
+Name = $(cut -d ',' -f 2 $line)
+MDP = $(cut -d ',' -f 3 $line)
+echo "Adding user $FirstName $LastName..."
+useradd -m -d /home/$FirstName -g $Group $FirstName
+echo "Creating password for user $FirstName $Name ..." echo "$FirstName:$Password" | chpasswd
+done
+exit 0
+# chmod u+x users.sh
+# ./users.sh
+6. # su - firstname3
+7.
+# nano remove.sh
+#!/bin/bash
+file = StudentList.csv
+Group = $(head -1 $file | cut -d ',' -f 4)
+for line in $(cat $file)
+do
+Firstname = $(cut -d ',' -f 1 $line)
+echo "Deleting user $FirstName..."
+userdel -r $FirstName
+done
+exit 0
+# chmod u+x delete.sh
+# ./remove.sh
+8. Check in passwd and shadow files.
