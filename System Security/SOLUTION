@@ -1,0 +1,14 @@
+Management of connected users:
+13. Was carol connected through a remote host?
+Why ?
+-> Carol was connected by a remote host since
+the terminal used is pts/0 which corresponds to
+SSH or Telnet connections (Remote)
+14. The length of Carol's session:
+-> Carol launched her session on Sunday, May 31 at
+2:16 p.m. and disconnected the same day at 2:22 p.m., i.e.
+therefore a duration of 6 minutes.
+15. Was carol connected through a real
+classic text terminal?
+-> Carol launched her connection using a terminal
+remote "pts/0"
