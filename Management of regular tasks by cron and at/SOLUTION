@@ -1,0 +1,163 @@
+1 Managing regular tasks by cron
+1.1 Handling crontab jobs:
+1/Check in the directory /var/spool/cron/
+if a user has scheduled tasks:
+cd /var/spool/cron
+sudo open crontabs
+2/Create a user crontab to launch the
+command date at the next restart of
+the machine. Redirect result to file
+/home/sics/the_date.txt:
+sudo crontab -e
+@reboot dater /home/sics/la_date.txt3/ Check the date.txt file:
+cat the\_date.txt
+4/Explain how * * * * * echo works
+"Hello, it's $(date +\%R)." >> /home/sics/the_dates.txt:
+display sentence above to file
+/home/sics/dates.txt every minute
+all year long
+6/Display scheduled tasks:
+cat /var/spool/cron/crontabs/root
+7/Check the content of the file les_dates.txt
+after a few minutes :
+cat the_dates.txt
+8/Create this script:
+gedit archiver.sh
+#!/bin/bash
+if [ -f / tmp / report . txt ]
+thentar cvf /tmp / ✩ ( date +\%d -\%m -\%y -\%H -\%M -\%S ).
+rm /tmp/report. txt
+else
+touch /tmp / ✩ ( date +\%d -\%m -\%y -\%H -\%M -\%S ).
+your
+fi
+exit 0
+9/Add execution rights to the script:
+chmod a+x archiver.sh
+10/Run the script to test it:
+./archiver.sh
+11/ Check the existence of the empty file:
+ls /tmp
+12/ Create the rapport.txt report:
+touch /tmp/rapport.txt
+13/ Run the script again:
+./archiver.sh
+14/ Check the existence of the archive:
+ls /tmp15/Automate execution of this script
+(system task) so that it is launched every
+Wednesdays from noon to 6 p.m. every two
+minutes :
+sudo crontab -e
+*/2 18 * * wed ./archiver.sh
+16/ check the presence of the archives in the
+/tmp directory:
+ls /tmp
+1.2 Handling access to cron:
+17/Create the file /etc/cron.allow:
+touch /etc/cron.allow
+18. Try adding a task in crontab:
+crontab -e
+19/ We cannot add the stain because the name
+current user name is not registered in
+the /etc/cron.allow file
+20. Add login in this file: echo "sics" > /etc/cron.allow
+21. Adding a task in crontab:
+crontab -e
+* * * * * ./new.sh
+22/ Yes we can add this task
+23/Delete /etc/cron.allow then create
+/etc/cron.deny:
+rm /etc/cron.allow
+touch /etc/cron.deny
+24/ Try to add a task in crontab:
+crontab -e
+* * * * * ./new.sh
+25/Yes we can add it
+26/Add my login in this file:
+echo "sics" > /etc/cron.deny
+27/ Try to add a task in crontab:
+crontab -e28/ No, I can't add this task
+29/ Adding the login in the file
+/etc/cron.allow:
+touch /etc/cron.allow
+echo "sics" > /etc/cron.allow
+30/ Add a task in crontab:
+crontab -e
+* * * * * ./new.sh
+31/ It can be seen that the rights attributed by
+cron.allow take priority over those of
+cron.deny
+2 Task management by at:
+2.1 Handling tasks by at:
+32/ Program the creation of directories
+Abc, Def and Ghi in the next 5
+Minutes :
+at now +5 minutes
+mkdir Abcmkdir Def
+mkdir Ghi
+<EOT>
+CTRL+D
+33/List just after the pending jobs:
+at-l
+34/ Check, after 5 minutes, the creation of
+aforementioned directories:
+ls
+35/List pending jobs:
+at-l
+36Create a job to run some
+commands (e.g. ls, touch and mkdir) the
+next Saturday at noon:
+at 12:00PM saturday
+mkdir exple1
+touch exple2
+ls<EOT>
+CTRL+D
+37/Display scheduled jobs:
+at-l
+38. View commands for this job:
+at -c 2
+39/Delete this job:
+at -d 2
+2.2 Manipulation of access to at:
+40/Create the file /etc/at.allow:
+touch /etc/at.allow
+41/ Try to add a task by at:
+at +2 minutes
+42/ We cannot add the task because
+current username is not registered
+in the /etc/at.allow file:
+43/Add your name (login) in this file:
+echo "sics" > /etc/at.allow44/Retry adding task by at:
+at +2 minutes
+ls
+<EOT>
+CTRL+D
+45/ yes
+46/Delete /etc/at.allow then create
+/etc/at.deny:
+rm /etc/at.allow
+touch /etc/at.deny
+47/Try to add a task by at:
+at +2 minutes
+ls
+<EOT>
+CTRL+D
+48/ Yes.
+49/ Add your name (login) in this file:
+echo "sics" > /etc/at.deny50/Retry adding task by at:
+at +2 minutes
+ls
+<EOT>
+CTRL+D
+51. No.
+52/Add your name to the file
+/etc/at.allow:
+touch /etc/at.allow
+echo "sics" > /etc/at.allow
+53/Try again to add a task by at:
+at +2 minutes
+ls
+<EOT>
+CTRL+D
+54/It is noted that the rights attributed by
+at.allow takes precedence over at.deny
